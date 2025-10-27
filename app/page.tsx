@@ -1,103 +1,157 @@
 import Image from "next/image";
+import Link from "next/link";
+import { servicesSecItems, blogSecItems } from "@/data/data";
+import ServicesCard from "@/Components/ServicesCard";
+import Testimonials from "@/Components/Testimonials";
+import Cta from "@/Components/Cta";
+import BlogCard from "@/Components/BlogCard";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      {/* Hero */}
+      <section className="pt-32 relative">
+        <div className="container grid gap-16 space-y-10 sm:space-y-0 lg:grid-cols-2 lg:items-end">
+          {/* content */}
+          <div className="max-w-xl md:max-w-2xl lg:max-w-none my-auto pb-10">
+            <p className="subtitle">Smile with Confidence</p>
+            <h1 className="text-4xl md:text-5xl lg:text-[54px] font-bold">
+              HELPING YOU BRING BACK YOUR{" "}
+              <span className="text-primary-600">HAPPY SMILE</span>
+            </h1>
+            <p className="py-[14px_32px]">
+              Lorem ipsum dolor sit amet consectetur. Consequat pharetra
+              ultrices scelerisque arcu lorem augue. Lacus justo euismod justo
+              amet dictum vel sapien est. Imperdiet tempor.
+            </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+            {/* Wrapper */}
+            <div className="flex flex-col md:flex-row gap-4">
+              <Link href={"/about"} className="primary-btn">
+                LEARN MORE
+              </Link>
+              <Link href={"/services"} className="secondary-btn">
+                BROWSE SERVICES
+              </Link>
+            </div>
+          </div>
+          {/* image */}
+          <div className="relative max-w-max lg:mx-0 lg:ml-auto">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src={"/images/hero-img.png"}
+              alt="hero image"
+              priority
+              width={727}
+              height={787}
+              className="relative z-20"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <Image
+              src={"/images/hero-card.png"}
+              alt="hero card"
+              priority
+              width={229}
+              height={109}
+              className="absolute top-11 left-5 z-10 ring ring-primary-200 rounded-lg"
+            />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        {/* Bg clr */}
+        <div className="bg-primary-100 absolute bottom-0 right-0 h-5/12 w-3/4 sm:h-1/2 lg:w-1/2 lg:h-full rounded-tl-xl lg:rounded-tl-none -z-10" />
+
+        {/* Shape */}
+        <Image
+          src={"/images/shape-1.svg"}
+          alt="shape"
+          width={200}
+          height={200}
+          className="absolute top-28 -left-8 -z-10"
+        />
+      </section>
+
+      {/* Services */}
+      <section className="section">
+        <div className="container">
+          {/* Title */}
+          <div className="flex gap-6 flex-wrap items-center justify-between">
+            <div>
+              <p className="subtitle">Services</p>
+              <h2 className="title max-w-md">
+                Advanced Dental Care for Healthier Smiles
+              </h2>
+            </div>
+            <Link href={"/services"} className="primary-btn uppercase">
+              View All
+            </Link>
+          </div>
+          {/* Wrapper */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
+            {servicesSecItems.map((item) => (
+              <ServicesCard key={item.id} {...item}/>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About */}
+      <section className="py-20 bg-primary-100/25 mt-20 relative">
+        <div className="container grid gap-14 lg:grid-cols-2 lg:items-center">
+          {/* Content */}
+          <div className="lg:order-1 space-y-1.5">
+            <p className="subtitle">About Us</p>
+            <h2 className="title">Serving Our Community with 15 Years of Experience</h2>
+            <p className="mt-4 mb-8">Lorem ipsum dolor sit amet consectetur. Amet platea egestas aliquam habitant. Hac urna a rhoncus venenatis arcu. Felis elit posuere ornare massa pellentesque quam porta. Amet dolor nisi vehicula consectetur sed aliquet ut faucibus gravida. Ultricies a sem magna feugiat nisl mi a.</p>
+
+            <div className="flex items-center mb-10 gap-6">
+              <span className="rounded-full overflow-hidden ring ring-primary-500 aspect-square">
+                <Image src={'/images/about-sm-img.png'} alt="sm image" width={80} height={80}/>
+              </span>
+
+              <div className="space-y-0.5">
+                <h2 className="card-title">Dr. Smith Moore</h2>
+                <p>Dentist at global Dentistry</p>
+              </div>
+            </div>
+
+            <Link href={'/about'} className="primary-btn uppercase">
+              LEARN MORE
+            </Link>
+          </div>
+          {/* Image */}
+          <div className="max-w-max mx-auto">
+            <Image src={'/images/about-section-img.png'} alt="about section image" width={512} height={557}/>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="section">
+        <Testimonials />
+      </section>
+
+      {/* CTA */}
+      <section className="section">
+        <Cta />
+      </section>
+
+      {/* Blog */}
+      <section className="section">
+        <div className="container">
+          {/* Title */}
+          <div>
+            <p className="subtitle">Resources</p>
+            <h2 className="title">Articles, Tips & Insights on Dental Care</h2>
+          </div>
+
+          {/* Wrapper */}
+          <div className="grid mt-11 lg:mt-16 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* Blog component */}
+            {blogSecItems.map((item) => (
+              <BlogCard key={item.id} {...item} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
