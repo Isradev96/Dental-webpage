@@ -10,3 +10,14 @@ export interface blogCardProps {
     text: string;
     date: string;
 }
+
+export interface inputProps {
+    type: string;
+    placeholder: string;
+    label: string;
+}
+
+export interface faqCardProps { 
+    title: string;
+    text: string;
+}

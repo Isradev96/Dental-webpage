@@ -31,7 +31,7 @@ const Header = () => {
           <ul className="py-6 text-center">
             {navItems.map((item) => (
               <li key={item.id} className="">
-                <Link href={item.href} className={`uppercase p-1.5 inline-block hover:text-primary-600 transition-colors font-medium ${pathname === item.href ? "text-primary-600" : ""}`}>
+                <Link href={item.href} className={`uppercase p-1.5 inline-block hover:text-primary-600 transition-colors font-medium ${pathname === item.href ? "text-primary-600" : ""}`} onClick={handleClick}>
                   {item.label}
                 </Link>
               </li>
